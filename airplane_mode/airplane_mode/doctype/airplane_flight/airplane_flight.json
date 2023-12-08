@@ -1,0 +1,198 @@
+{
+ "actions": [],
+ "allow_guest_to_view": 1,
+ "allow_rename": 1,
+ "creation": "2023-12-02 14:58:54.299104",
+ "default_view": "List",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "airplane",
+  "column_break_qu917",
+  "status",
+  "airport_deteils_section",
+  "source_airport",
+  "source_airport_code",
+  "column_break_tqdec",
+  "destinantion_airport",
+  "destinantion_airport_code",
+  "column_break_nmqal",
+  "date_of_departure",
+  "time_of_departure",
+  "column_break_9kivp",
+  "duration_of_flight",
+  "is_published",
+  "route"
+ ],
+ "fields": [
+  {
+   "fieldname": "airplane",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Airplane",
+   "options": "Airplane",
+   "reqd": 1
+  },
+  {
+   "fieldname": "date_of_departure",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Date of departure",
+   "reqd": 1
+  },
+  {
+   "fieldname": "time_of_departure",
+   "fieldtype": "Time",
+   "in_list_view": 1,
+   "label": "Time of departure",
+   "reqd": 1
+  },
+  {
+   "default": "Scheduled",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Status",
+   "options": "Scheduled\nCompleted\nCancelled",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_qu917",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "airport_deteils_section",
+   "fieldtype": "Section Break",
+   "label": "Airport deteils"
+  },
+  {
+   "fetch_from": "airport.city",
+   "fieldname": "source_airport",
+   "fieldtype": "Link",
+   "label": "source airport",
+   "options": "Airport"
+  },
+  {
+   "fetch_from": "source_airport.code",
+   "fieldname": "source_airport_code",
+   "fieldtype": "Data",
+   "label": "source airport code"
+  },
+  {
+   "fieldname": "destinantion_airport",
+   "fieldtype": "Link",
+   "label": "destinantion airport",
+   "options": "Airport"
+  },
+  {
+   "fetch_from": "destinantion_airport.code",
+   "fieldname": "destinantion_airport_code",
+   "fieldtype": "Data",
+   "label": "destinantion airport code"
+  },
+  {
+   "fieldname": "column_break_nmqal",
+   "fieldtype": "Section Break",
+   "label": "Duration deteils"
+  },
+  {
+   "fieldname": "duration_of_flight",
+   "fieldtype": "Duration",
+   "label": "duration of flight"
+  },
+  {
+   "fieldname": "column_break_tqdec",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_9kivp",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "is_published",
+   "fieldtype": "Check",
+   "label": "Is published"
+  },
+  {
+   "fieldname": "route",
+   "fieldtype": "Data",
+   "label": "Route"
+  }
+ ],
+ "has_web_view": 1,
+ "index_web_pages_for_search": 1,
+ "is_published_field": "is_published",
+ "links": [
+  {
+   "link_doctype": "Airplane ticket",
+   "link_fieldname": "flight"
+  }
+ ],
+ "modified": "2023-12-06 21:59:05.106709",
+ "modified_by": "Administrator",
+ "module": "Airplane_mode",
+ "name": "Airplane Flight",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Fleet Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Travel Agent",
+   "share": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Airport Authority Personnel",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Flight Crew Member",
+   "share": 1
+  }
+ ],
+ "route": "flights",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

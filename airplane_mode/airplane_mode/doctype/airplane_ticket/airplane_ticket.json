@@ -1,0 +1,274 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "format:{airline}-{###}-{source_airport_code}-to-{destinantion_airport_code}",
+ "creation": "2023-12-01 15:03:40.566801",
+ "default_view": "List",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "passenger",
+  "column_break_jsa3w",
+  "flight",
+  "section_break_ow6ji",
+  "status",
+  "column_break_pry3w",
+  "seat",
+  "section_break_hgpud",
+  "source_airport_code",
+  "section_break_l3t2k",
+  "destinantion_airport_code",
+  "section_break_9prun",
+  "add_on",
+  "section_break_xiwbs",
+  "flight_price",
+  "column_break_9ntlm",
+  "total_amount",
+  "departure_deteils_column",
+  "departure_date",
+  "departure_time",
+  "flight_duration",
+  "amended_from",
+  "airline",
+  "column_break_hqjrj",
+  "section_break_r7csr"
+ ],
+ "fields": [
+  {
+   "fieldname": "passenger",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "passenger",
+   "options": "Flight pasenger",
+   "reqd": 1
+  },
+  {
+   "fetch_from": "flight.source_airport_code",
+   "fieldname": "source_airport_code",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "source airport code",
+   "reqd": 1
+  },
+  {
+   "fieldname": "flight",
+   "fieldtype": "Link",
+   "label": "flight",
+   "options": "Airplane Flight",
+   "reqd": 1
+  },
+  {
+   "fetch_from": "flight.destinantion_airport_code",
+   "fieldname": "destinantion_airport_code",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "destinantion airport code",
+   "reqd": 1
+  },
+  {
+   "fieldname": "departure_deteils_column",
+   "fieldtype": "Section Break",
+   "label": "Departure deteils"
+  },
+  {
+   "fetch_from": "flight.date_of_departure",
+   "fieldname": "departure_date",
+   "fieldtype": "Date",
+   "label": "departure date",
+   "read_only": 1,
+   "reqd": 1
+  },
+  {
+   "fetch_from": "flight.time_of_departure",
+   "fieldname": "departure_time",
+   "fieldtype": "Time",
+   "label": "departure time",
+   "read_only": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Airplane ticket",
+   "print_hide": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "airline",
+   "fieldtype": "Link",
+   "label": "airline",
+   "options": "Airline"
+  },
+  {
+   "default": "Booked",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Status",
+   "options": "Booked\nChecked\nBoarded"
+  },
+  {
+   "fieldname": "column_break_hqjrj",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "add_on",
+   "fieldtype": "Table",
+   "label": "add on ",
+   "options": "Airplane Ticket Add-on Item"
+  },
+  {
+   "fieldname": "section_break_r7csr",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "flight_price",
+   "fieldtype": "Currency",
+   "label": "Flight price"
+  },
+  {
+   "fieldname": "total_amount",
+   "fieldtype": "Currency",
+   "label": "Total amount"
+  },
+  {
+   "fieldname": "seat",
+   "fieldtype": "Data",
+   "label": "seat",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_jsa3w",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "section_break_ow6ji",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "column_break_pry3w",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "section_break_l3t2k",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "section_break_hgpud",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "section_break_9prun",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "column_break_9ntlm",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "section_break_xiwbs",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fetch_from": "flight.duration_of_flight",
+   "fieldname": "flight_duration",
+   "fieldtype": "Duration",
+   "label": "Flight duration",
+   "read_only": 1,
+   "reqd": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [
+  {
+   "link_doctype": "Airplane Flight",
+   "link_fieldname": "Airplane"
+  }
+ ],
+ "modified": "2023-12-07 12:29:59.010437",
+ "modified_by": "Administrator",
+ "module": "Airplane_mode",
+ "name": "Airplane ticket",
+ "naming_rule": "Expression",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "report": 1,
+   "role": "Fleet Manager",
+   "select": 1,
+   "share": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Travel Agent",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Airport Authority Personnel",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Flight Crew Member",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [
+  {
+   "color": "Blue",
+   "title": "Booked"
+  },
+  {
+   "color": "Purple",
+   "title": "Checked"
+  },
+  {
+   "color": "Green",
+   "title": "Boarded"
+  }
+ ],
+ "track_changes": 1,
+ "track_seen": 1,
+ "track_views": 1
+}
